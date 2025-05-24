@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+html {
+  transition: background-color 0.1s ease-in-out, color 0.1s ease;
+}
+html,body{
+  overflow-x: hidden;
+}
