@@ -1,9 +1,59 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-html {
-  transition: background-color 0.1s ease-in-out, color 0.1s ease;
+
+@layer base {
+  html {
+    transition: background-color 0.1s ease-in-out, color 0.1s ease;
+    scroll-behavior: smooth;
+  }
+  html, body {
+    overflow-x: hidden;
+  }
 }
-html,body{
-  overflow-x: hidden;
+
+@layer components {
+  .chapter {
+    @apply min-h-screen py-20 px-4 md:px-8 lg:px-16;
+    scroll-margin-top: 80px;
+  }
+
+  .chapter-title {
+    @apply text-4xl md:text-5xl font-bold mb-8 text-secondary;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .chapter-content {
+    @apply max-w-4xl mx-auto;
+  }
+
+  .story-transition {
+    @apply transition-all duration-700 ease-in-out;
+  }
+
+  .hover-card {
+    @apply transition-all duration-300 hover:transform hover:scale-105 hover:shadow-xl;
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-secondary to-accent animate-gradient;
+  }
+
+  .floating {
+    @apply animate-float;
+  }
+
+  .highlight-box {
+    @apply border-2 border-secondary/20 rounded-lg p-6 hover:border-secondary/40 transition-colors duration-300;
+  }
+
+  .skill-badge {
+    @apply px-4 py-2 rounded-full bg-primary/50 border border-secondary/20 
+           hover:bg-secondary/10 hover:border-secondary/40 transition-all duration-300;
+  }
+
+  .project-card {
+    @apply bg-primary/50 backdrop-blur-sm rounded-lg p-6 border border-tertiary/20
+           hover:border-secondary/40 transition-all duration-300;
+  }
 }
