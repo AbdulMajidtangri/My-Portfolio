@@ -1,11 +1,11 @@
 import React from 'react';
-import Navbar from './components/Navbar';
-import HeroSection from './components/HeroSection';
-import AboutSection from './components/AboutSection';
-import ProjectsSection from './components/ProjectsSection';
-import SkillsSection from './components/SkillsSection';
-import Education from './components/Education';
-import Footer from './components/Footer';
+import Navbar from './Components/Navbar';
+import HeroSection from './Components/HeroSection';
+import AboutSection from './Components/AboutSection';
+import ProjectsSection from './Components/ProjectsSection';
+import SkillsSection from './Components/SkillsSection';
+import Education from './Components/Education';
+import Footer from './Components/Footer';
 
 const App = () => {
   return (
