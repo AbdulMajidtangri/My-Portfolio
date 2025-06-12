@@ -1,10 +1,13 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { FaMoon, FaSun, FaBars, FaTimes } from 'react-icons/fa';
+import gsap from 'gsap';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const menuRef = useRef(null);
+  const menuItemsRef = useRef([]);
 
   // Toggle dark mode
   const toggleDarkMode = () => {
@@ -14,12 +17,51 @@ const Navbar = () => {
     localStorage.setItem('darkMode', newMode);
   };
 
-  // Close mobile menu
-  const closeMenu = () => setIsOpen(false);
+  // Toggle mobile menu with animation
+  const toggleMenu = () => {
+    if (!isOpen) {
+      setIsOpen(true);
+      // Animate menu in
+      gsap.fromTo(menuRef.current,
+        {
+          opacity: 0,
+          y: -20,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.3,
+          ease: "power2.out"
+        }
+      );
+      // Animate menu items
+      gsap.fromTo(menuItemsRef.current,
+        {
+          opacity: 0,
+          y: 20,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.4,
+          stagger: 0.1,
+          ease: "power2.out"
+        }
+      );
+    } else {
+      // Animate menu out
+      gsap.to(menuRef.current, {
+        opacity: 0,
+        y: -20,
+        duration: 0.3,
+        ease: "power2.in",
+        onComplete: () => setIsOpen(false)
+      });
+    }
+  };
 
   // Handle scroll to section
   const scrollToSection = (sectionId) => {
-    closeMenu();
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({
@@ -27,6 +69,7 @@ const Navbar = () => {
         block: 'start'
       });
       setActiveSection(sectionId);
+      toggleMenu(); // This will trigger the close animation
     }
   };
 
@@ -61,18 +104,21 @@ const Navbar = () => {
     document.documentElement.classList.toggle('dark', savedMode);
   }, []);
 
-  // Close menu when clicking outside on mobile
+  // Close menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
-      const navbar = document.querySelector('.navbar-container');
-      const mobileMenu = document.querySelector('.mobile-menu');
-      if (isOpen && !navbar?.contains(event.target) && !mobileMenu?.contains(event.target)) {
-        closeMenu();
+      const menuButton = document.getElementById('menu-button');
+      const mobileMenu = document.getElementById('mobile-menu');
+      
+      if (isOpen && 
+          !menuButton?.contains(event.target) && 
+          !mobileMenu?.contains(event.target)) {
+        toggleMenu(); // This will trigger the close animation
       }
     };
 
-    document.addEventListener('click', handleClickOutside);
-    return () => document.removeEventListener('click', handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [isOpen]);
 
   const navItems = [
@@ -84,7 +130,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="bg-white dark:bg-gray-800 shadow-md fixed w-full z-50 navbar-container">
+    <nav className="bg-white dark:bg-gray-800 shadow-md fixed w-full z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           {/* Logo */}
@@ -129,7 +175,8 @@ const Navbar = () => {
             </button>
 
             <button
-              onClick={() => setIsOpen(!isOpen)}
+              id="menu-button"
+              onClick={toggleMenu}
               className="md:hidden p-2 rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
               aria-label="Toggle menu"
             >
@@ -140,17 +187,36 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu */}
-      {isOpen && (
-        <div className="mobile-menu md:hidden bg-white dark:bg-gray-800 shadow-lg">
-          <div className="px-2 pt-2 pb-4 space-y-1">
-            {navItems.map((item) => (
+      <div 
+        id="mobile-menu"
+        ref={menuRef}
+        className={`md:hidden fixed inset-0 bg-white dark:bg-gray-800 z-40 ${
+          isOpen ? 'block' : 'hidden'
+        }`}
+      >
+        <div className="flex flex-col h-full">
+          {/* Close button at the top */}
+          <div className="flex justify-end p-4">
+            <button
+              onClick={toggleMenu}
+              className="p-2 rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+              aria-label="Close menu"
+            >
+              <FaTimes size={24} />
+            </button>
+          </div>
+          
+          {/* Menu items */}
+          <div className="flex-1 flex flex-col justify-center px-4 space-y-6">
+            {navItems.map((item, index) => (
               <button
                 key={item.id}
+                ref={el => menuItemsRef.current[index] = el}
                 onClick={() => scrollToSection(item.id)}
-                className={`block w-full text-left px-3 py-2 rounded-md text-base font-medium transition-colors ${
+                className={`text-center text-xl font-medium transition-colors ${
                   activeSection === item.id
-                    ? 'bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400'
-                    : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
+                    ? 'text-blue-600 dark:text-blue-400'
+                    : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white'
                 }`}
               >
                 {item.label}
@@ -158,7 +224,7 @@ const Navbar = () => {
             ))}
           </div>
         </div>
-      )}
+      </div>
     </nav>
   );
 };
