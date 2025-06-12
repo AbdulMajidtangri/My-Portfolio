@@ -64,18 +64,15 @@ const Navbar = () => {
   // Close menu when clicking outside on mobile
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (isOpen && !event.target.closest('.navbar-container')) {
+      const navbar = document.querySelector('.navbar-container');
+      const mobileMenu = document.querySelector('.mobile-menu');
+      if (isOpen && !navbar?.contains(event.target) && !mobileMenu?.contains(event.target)) {
         closeMenu();
       }
     };
 
-    if (isOpen) {
-      document.addEventListener('click', handleClickOutside);
-    }
-
-    return () => {
-      document.removeEventListener('click', handleClickOutside);
-    };
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
   }, [isOpen]);
 
   const navItems = [
@@ -143,25 +140,25 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu */}
-      <div className={`md:hidden transition-all duration-300 ease-in-out ${
-        isOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0 overflow-hidden'
-      }`}>
-        <div className="px-2 pt-2 pb-4 space-y-1 bg-white dark:bg-gray-800 shadow-lg">
-          {navItems.map((item) => (
-            <button
-              key={item.id}
-              onClick={() => scrollToSection(item.id)}
-              className={`block w-full text-left px-3 py-2 rounded-md text-base font-medium transition-colors ${
-                activeSection === item.id
-                  ? 'bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400'
-                  : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
-              }`}
-            >
-              {item.label}
-            </button>
-          ))}
+      {isOpen && (
+        <div className="mobile-menu md:hidden bg-white dark:bg-gray-800 shadow-lg">
+          <div className="px-2 pt-2 pb-4 space-y-1">
+            {navItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className={`block w-full text-left px-3 py-2 rounded-md text-base font-medium transition-colors ${
+                  activeSection === item.id
+                    ? 'bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400'
+                    : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
+                }`}
+              >
+                {item.label}
+              </button>
+            ))}
+          </div>
         </div>
-      </div>
+      )}
     </nav>
   );
 };
