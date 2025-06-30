@@ -7,6 +7,7 @@ import wajedoThumb from '../assets/wajedo internationa.png';
 import hackathonThumb from '../assets/hackathon.png';
 import wadejoThumb from '../assets/Wajedo oo.png';
 import ecommerceThumb from '../assets/E-Commerce.png';
+import hubar from '../assets/husbar1.png'
 
 const ProjectsSection = () => {
   const projects = [
@@ -15,15 +16,23 @@ const ProjectsSection = () => {
       description: "A corporate website with modern design and responsive layout",
       tags: ["Javascript", "React.js", "Tailwind CSS"],
       liveUrl: "https://wajedo-international-corporation.vercel.app/",
-      codeUrl: "#",
+      codeUrl: "https://github.com/AbdulMajidtangri/Wajedo_international_Corporation",
       thumbnail: wajedoThumb,
+    },
+     {
+      title: "Husbar",
+  description: "A professional business website tailored for branding and service presentation, built with a clean interface and responsive design.",
+      tags: ["Javascript", "React.js", "Tailwind CSS"],
+      liveUrl: "www.husbar.com",
+      codeUrl: "https://github.com/AbdulMajidtangri/Husbar",
+      thumbnail: hubar,
     },
     {
       title: "Frontend Hackathon",
       description: "Competition project showcasing frontend skills",
       tags: ["HTML", "CSS", "JavaScript"],
       liveUrl: "https://raza-abbas-23sw.github.io/Frontend-Hackathon-2k25/",
-      codeUrl: "#",
+      codeUrl: "https://github.com/raza-abbas-23sw/Frontend-Hackathon-2k25",
       thumbnail: hackathonThumb,
     },
     {
@@ -31,7 +40,7 @@ const ProjectsSection = () => {
       description: "Portfolio website with smooth animations",
      tags: ["HTML", "CSS", "JavaScript"],
       liveUrl: "https://wadejosite.vercel.app/",
-      codeUrl: "#",
+      codeUrl: "https://github.com/AbdulMajidtangri/Wadejosite",
       thumbnail: wadejoThumb,
     },
     {
@@ -39,7 +48,7 @@ const ProjectsSection = () => {
       description: "Online shopping platform with product listings",
      tags: ["HTML", "CSS", "JavaScript"],
       liveUrl: "https://e-commerce-website-t.vercel.app/",
-      codeUrl: "#",
+      codeUrl: "https://github.com/AbdulMajidtangri/E-Commerce-Website",
       thumbnail: ecommerceThumb,
     }
   ];
