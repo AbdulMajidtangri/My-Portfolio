@@ -7,6 +7,7 @@ import wajedoThumb from '../assets/wajedo internationa.png';
 import hackathonThumb from '../assets/hackathon.png';
 import wadejoThumb from '../assets/Wajedo oo.png';
 import ecommerceThumb from '../assets/E-Commerce.png';
+import marsevThumb from '../assets/image.png';
 import hubar from '../assets/husbar1.png'
 
 const ProjectsSection = () => {
@@ -23,17 +24,17 @@ const ProjectsSection = () => {
       title: "Husbar",
   description: "A professional business website tailored for branding and service presentation, built with a clean interface and responsive design.",
       tags: ["Javascript", "React.js", "Tailwind CSS"],
-      liveUrl: "www.husbar.com",
+      liveUrl: "https://www.husbar.com/",
       codeUrl: "https://github.com/AbdulMajidtangri/Husbar",
       thumbnail: hubar,
     },
-    {
-      title: "Frontend Hackathon",
-      description: "Competition project showcasing frontend skills",
-      tags: ["HTML", "CSS", "JavaScript"],
-      liveUrl: "https://raza-abbas-23sw.github.io/Frontend-Hackathon-2k25/",
-      codeUrl: "https://github.com/raza-abbas-23sw/Frontend-Hackathon-2k25",
-      thumbnail: hackathonThumb,
+     {
+      title: "MarsevTech",
+      description: "A platform showcasing innovative tech solutions.",
+        tags: ["React","Node.js","MongoDB","Express.js"],
+      liveUrl: "https://www.marsevtech.com/",
+      codeUrl: "https://github.com/raza-abbas-23sw/MarsevTech",
+      thumbnail: marsevThumb,
     },
     {
       title: "Wadejo Site",
@@ -43,14 +44,6 @@ const ProjectsSection = () => {
       codeUrl: "https://github.com/AbdulMajidtangri/Wadejosite",
       thumbnail: wadejoThumb,
     },
-    {
-      title: "E-Commerce Store",
-      description: "Online shopping platform with product listings",
-     tags: ["HTML", "CSS", "JavaScript"],
-      liveUrl: "https://e-commerce-website-t.vercel.app/",
-      codeUrl: "https://github.com/AbdulMajidtangri/E-Commerce-Website",
-      thumbnail: ecommerceThumb,
-    }
   ];
 
   const [selectedProject, setSelectedProject] = useState(null);
