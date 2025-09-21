@@ -1,22 +1,19 @@
 import React from 'react';
+import { Routes, Route } from 'react-router-dom';
 import Navbar from './Components/Navbar';
-import HeroSection from './Components/HeroSection';
-import AboutSection from './Components/AboutSection';
-import ProjectsSection from './Components/ProjectsSection';
-import SkillsSection from './Components/SkillsSection';
-import Education from './Components/Education';
 import Footer from './Components/Footer';
+import Home from './Pages/Home';
+import About from './Pages/About';
 
 const App = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
       <main className="flex-grow">
-        <HeroSection />
-        <AboutSection />
-        <ProjectsSection />
-        <SkillsSection />
-        <Education />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
       </main>
       <Footer />
     </div>
