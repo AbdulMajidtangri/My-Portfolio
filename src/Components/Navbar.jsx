@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { FaMoon, FaSun, FaBars, FaTimes } from 'react-icons/fa';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import gsap from 'gsap';
 
 const Navbar = () => {
@@ -10,6 +10,7 @@ const Navbar = () => {
   const menuRef = useRef(null);
   const menuItemsRef = useRef([]);
   const location = useLocation();
+  const navigate = useNavigate();
 
   // Toggle dark mode
   const toggleDarkMode = () => {
@@ -42,43 +43,80 @@ const Navbar = () => {
     }
   };
 
-  // Handle scroll to section (only works on homepage)
-  const scrollToSection = (sectionId) => {
-    if (location.pathname !== "/") {
-      // If not on homepage, redirect first
-      window.location.href = `/#${sectionId}`;
-      return;
+  // Handle navigation - updated to handle both routes and scroll sections
+  const handleNavigation = (item) => {
+    if (item.type === 'route') {
+      // Navigate to the route page
+      navigate(`/${item.id}`);
+      setActiveSection(item.id);
+    } else if (item.type === 'scroll') {
+      // Handle scroll navigation
+      if (location.pathname !== "/") {
+        // If not on homepage, navigate to home with hash
+        navigate(`/#${item.id}`);
+        // The scroll will be handled after the page loads
+      } else {
+        // If already on homepage, scroll to section
+        const element = document.getElementById(item.id);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          setActiveSection(item.id);
+        }
+      }
+    } else if (item.type === 'link') {
+      // Handle home link
+      if (location.pathname !== "/") {
+        navigate("/");
+      } else {
+        // If already on homepage, scroll to top
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        setActiveSection('home');
+      }
     }
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      setActiveSection(sectionId);
+    
+    // Close mobile menu if open
+    if (isOpen) {
       toggleMenu();
     }
   };
 
-  // Set active section on scroll
+  // Set active section based on current route and scroll position
   useEffect(() => {
-    if (location.pathname !== "/") return; // only track sections on homepage
-
-    const handleScroll = () => {
-      const sections = ['home', 'about', 'projects', 'skills', 'education-contact'];
-      const scrollPosition = window.scrollY + 100;
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const offsetTop = element.offsetTop;
-          const offsetHeight = element.offsetHeight;
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(section);
-            break;
+    // Set active section based on current route
+    if (location.pathname === '/about') {
+      setActiveSection('about');
+    } else if (location.pathname === '/projects') {
+      setActiveSection('projects');
+    } else if (location.pathname === '/') {
+      // Only track scroll sections on homepage
+      const handleScroll = () => {
+        const sections = ['home', 'skills', 'education-contact'];
+        const scrollPosition = window.scrollY + 100;
+        
+        for (const section of sections) {
+          const element = document.getElementById(section);
+          if (element) {
+            const offsetTop = element.offsetTop;
+            const offsetHeight = element.offsetHeight;
+            if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+              setActiveSection(section);
+              break;
+            }
           }
         }
-      }
-    };
+        
+        // If at the top of the page, set to home
+        if (window.scrollY < 100) {
+          setActiveSection('home');
+        }
+      };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+      window.addEventListener('scroll', handleScroll);
+      // Set initial active section
+      handleScroll();
+      
+      return () => window.removeEventListener('scroll', handleScroll);
+    }
   }, [location.pathname]);
 
   // Initialize dark mode
@@ -107,13 +145,35 @@ const Navbar = () => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [isOpen]);
 
+  // Scroll to section after navigation to home page with hash
+  useEffect(() => {
+    if (location.pathname === '/' && location.hash) {
+      const sectionId = location.hash.replace('#', '');
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          setActiveSection(sectionId);
+        }
+      }, 100);
+    }
+  }, [location]);
+
   const navItems = [
     { id: 'home', label: 'Home', type: 'link' },
-    { id: 'about', label: 'About', type: 'route' }, // new page
-    { id: 'projects', label: 'Projects', type: 'scroll' },
+    { id: 'about', label: 'About', type: 'route' },
+    { id: 'projects', label: 'Projects', type: 'route' },
     { id: 'skills', label: 'Skills', type: 'scroll' },
     { id: 'education-contact', label: 'Contact', type: 'scroll' }
   ];
+
+  // Check if current route matches item
+  const isActiveRoute = (item) => {
+    if (item.type === 'route') {
+      return location.pathname === `/${item.id}`;
+    }
+    return activeSection === item.id;
+  };
 
   return (
     <nav className="bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm shadow-md fixed w-full z-50 transition-colors duration-500">
@@ -132,33 +192,19 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-4 lg:space-x-8">
-            {navItems.map((item) =>
-              item.type === 'route' ? (
-                <Link
-                  key={item.id}
-                  to={`/${item.id}`}
-                  className={`px-1 pt-1 border-b-2 text-sm font-medium transition-colors duration-300 ${
-                    location.pathname === `/${item.id}`
-                      ? 'border-blue-500 text-blue-600 dark:text-blue-400'
-                      : 'border-transparent text-gray-500 dark:text-gray-300 hover:border-gray-300 hover:text-gray-700 dark:hover:text-white'
-                  }`}
-                >
-                  {item.label}
-                </Link>
-              ) : (
-                <button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
-                  className={`px-1 pt-1 border-b-2 text-sm font-medium transition-colors duration-300 ${
-                    activeSection === item.id
-                      ? 'border-blue-500 text-blue-600 dark:text-blue-400'
-                      : 'border-transparent text-gray-500 dark:text-gray-300 hover:border-gray-300 hover:text-gray-700 dark:hover:text-white'
-                  }`}
-                >
-                  {item.label}
-                </button>
-              )
-            )}
+            {navItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => handleNavigation(item)}
+                className={`px-1 pt-1 border-b-2 text-sm font-medium transition-colors duration-300 ${
+                  isActiveRoute(item)
+                    ? 'border-blue-500 text-blue-600 dark:text-blue-400'
+                    : 'border-transparent text-gray-500 dark:text-gray-300 hover:border-gray-300 hover:text-gray-700 dark:hover:text-white'
+                }`}
+              >
+                {item.label}
+              </button>
+            ))}
           </div>
 
           {/* Dark mode and mobile menu button */}
@@ -193,36 +239,20 @@ const Navbar = () => {
       >
         <div className="flex flex-col h-full">
           <div className="flex-1 flex flex-col justify-center px-4 space-y-6">
-            {navItems.map((item, index) =>
-              item.type === 'route' ? (
-                <Link
-                  key={item.id}
-                  ref={el => menuItemsRef.current[index] = el}
-                  to={`/${item.id}`}
-                  onClick={toggleMenu}
-                  className={`text-center text-xl font-medium transition-colors ${
-                    location.pathname === `/${item.id}`
-                      ? 'text-blue-600 dark:text-blue-400'
-                      : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white'
-                  }`}
-                >
-                  {item.label}
-                </Link>
-              ) : (
-                <button
-                  key={item.id}
-                  ref={el => menuItemsRef.current[index] = el}
-                  onClick={() => scrollToSection(item.id)}
-                  className={`text-center text-xl font-medium transition-colors ${
-                    activeSection === item.id
-                      ? 'text-blue-600 dark:text-blue-400'
-                      : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white'
-                  }`}
-                >
-                  {item.label}
-                </button>
-              )
-            )}
+            {navItems.map((item, index) => (
+              <button
+                key={item.id}
+                ref={el => menuItemsRef.current[index] = el}
+                onClick={() => handleNavigation(item)}
+                className={`text-center text-xl font-medium transition-colors ${
+                  isActiveRoute(item)
+                    ? 'text-blue-600 dark:text-blue-400'
+                    : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white'
+                }`}
+              >
+                {item.label}
+              </button>
+            ))}
           </div>
         </div>
       </div>
