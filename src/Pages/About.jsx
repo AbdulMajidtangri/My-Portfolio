@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { 
   FaCode, 
@@ -22,6 +22,7 @@ import {
   FaCalendarAlt
 } from 'react-icons/fa';
 import profile from '../assets/profile.png';
+import cv from '../assets/majidcv (2).pdf';
 
 // Personal Info Component
 const PersonalInfo = () => (
@@ -41,7 +42,7 @@ const PersonalInfo = () => (
       </div>
       <div>
         <span className="font-medium text-gray-800 dark:text-white">Email:</span>
-        <p className="text-gray-600 dark:text-gray-300">majidalitangri@gmail.com</p>
+        <p className="text-gray-600 dark:text-gray-300">majidalitangri7@gmail.com</p>
       </div>
     </div>
     <div className="flex items-center">
@@ -394,6 +395,15 @@ const TabsNavigation = ({ activeTab, setActiveTab }) => (
 const About = () => {
   const [activeTab, setActiveTab] = useState('skills');
 
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth' // Smooth scrolling animation
+    });
+  }, []); // Empty dependency array means this runs once when component mounts
+
   return (
     <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900 transition-colors duration-500 relative overflow-hidden">
       <div className="max-w-6xl mx-auto relative z-10">
@@ -469,7 +479,7 @@ const About = () => {
                 Contact Me
               </a>
               <a
-                href="/resume.pdf"
+                href={cv}
                 download
                 className="px-6 py-3 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 font-medium rounded-lg transition-all duration-300 flex items-center gap-2"
               >

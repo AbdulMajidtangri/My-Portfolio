@@ -19,7 +19,7 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, Sphere, Stars } from '@react-three/drei';
 import * as THREE from 'three';
 import profile from '../assets/profile.png';
-import cv from '../assets/majidcv.pdf';
+import cv from '../assets/majidcv (2).pdf';
 
 const useIsMobile = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -259,7 +259,7 @@ const HeroSection = () => {
   const handleDownloadCV = () => {
     const link = document.createElement('a');
     link.href = cv;
-    link.download = 'Ame_Majid_FullStack_Developer_CV.pdf';
+    link.download = 'Majid_FullStack_Developer_CV.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

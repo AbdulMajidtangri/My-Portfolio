@@ -98,23 +98,7 @@ const Education = () => {
             </div>
             <span>Education Journey</span>
           </motion.h2>
-          
-          {/* Timeline Navigation */}
-          <div className="flex justify-center mb-6 bg-blue-50 dark:bg-gray-700 p-1 rounded-xl">
-            {educationData.map((edu, index) => (
-              <button
-                key={edu.id}
-                onClick={() => setActiveTimeline(index)}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
-                  activeTimeline === index
-                    ? 'bg-blue-600 text-white shadow-md'
-                    : 'text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400'
-                }`}
-              >
-                {edu.period.split('-')[0]}
-              </button>
-            ))}
-          </div>
+     
           
           {/* Timeline Content */}
           <div className="relative">
@@ -134,7 +118,6 @@ const Education = () => {
                 <div className="absolute -left-9 top-5 w-12 h-12 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center text-white shadow-lg border-4 border-white dark:border-gray-800">
                   {edu.icon}
                 </div>
-                
                 <div className="ml-10 bg-gradient-to-r from-blue-50 to-blue-100 dark:from-gray-700 dark:to-gray-800 p-6 rounded-2xl shadow-md border border-blue-200 dark:border-gray-600">
                   <div className="flex justify-between items-start mb-3">
                     <h3 className="text-xl font-bold text-gray-800 dark:text-white">
@@ -155,7 +138,7 @@ const Education = () => {
                   
                   <div className="mb-4">
                     <div className="flex items-center gap-2 mb-2">
-                      <FaAward className="text-yellow-500" />
+                    
                       <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Achievements:</span>
                     </div>
                     <ul className="text-sm text-gray-600 dark:text-gray-400 space-y-1">

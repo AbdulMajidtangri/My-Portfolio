@@ -2,10 +2,13 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   FaHtml5, FaCss3Alt, FaJs, FaReact, FaGitAlt, FaGithub, FaTimes,
-  FaCode, FaLaptopCode, FaRocket
+  FaCode, FaLaptopCode, FaRocket, FaDatabase, FaServer, FaCloud
 } from 'react-icons/fa';
 import { 
-  SiTailwindcss, SiGreensock, SiBootstrap, SiCplusplus, SiVercel, SiNetlify 
+  SiTailwindcss, SiGreensock, SiBootstrap, SiCplusplus, SiVercel, SiNetlify,
+  SiNodedotjs, SiExpress, SiMongodb, SiPostgresql, SiMysql, SiPython, SiDjango,
+  SiFlask, SiRedis, SiDocker, SiFirebase, SiNextdotjs, SiTypescript,
+  SiGraphql, SiJest, SiPostman, SiNginx
 } from 'react-icons/si';
 import { DiJava } from 'react-icons/di';
 
@@ -19,114 +22,150 @@ const SkillsSection = () => {
       icon: <FaCode className="text-blue-500" />,
       skills: [
         { 
-          name: "HTML", 
+          name: "HTML5", 
           icon: <FaHtml5 className="text-orange-500" />, 
           level: 95,
-          description: "Semantic HTML5 markup, accessibility best practices, and SEO optimization",
-          projects: "Built responsive layouts for 10+ projects"
+          description: "Semantic HTML5 markup, accessibility best practices, SEO optimization, and web standards compliance",
+          projects: "Built responsive layouts for 20+ projects including e-commerce and SaaS applications"
         },
         { 
-          name: "CSS", 
+          name: "CSS3", 
           icon: <FaCss3Alt className="text-blue-500" />, 
           level: 90,
-          description: "Advanced CSS3 features, Flexbox, Grid, animations and transitions",
-          projects: "Created complex layouts and animations for various applications"
+          description: "Advanced CSS3 features, Flexbox, Grid, animations, transitions, and responsive design principles",
+          projects: "Created complex layouts and animations for various production applications"
         },
         { 
-          name: "JavaScript", 
+          name: "JavaScript (ES6+)", 
           icon: <FaJs className="text-yellow-400" />, 
-          level: 85,
-          description: "ES6+ features, DOM manipulation, async programming, and modern JS patterns",
-          projects: "Implemented interactive features in all frontend projects"
+          level: 90,
+          description: "Modern JavaScript features, async/await, DOM manipulation, functional programming, and design patterns",
+          projects: "Core language used in all full-stack projects and interactive web applications"
         },
         { 
-          name: "React JS", 
+          name: "TypeScript", 
+          icon: <SiTypescript className="text-blue-600" />, 
+          level: 85,
+          description: "Static typing, interfaces, generics, and TypeScript configuration for large-scale applications",
+          projects: "Implemented in 3 enterprise-level React and Node.js projects"
+        },
+        { 
+          name: "React.js", 
           icon: <FaReact className="text-blue-400" />, 
-          level: 80,
-          description: "Component-based architecture, hooks, context API, and state management",
-          projects: "Developed 5+ React applications including this portfolio"
+          level: 88,
+          description: "Component-based architecture, hooks, context API, state management, and performance optimization",
+          projects: "Developed 10+ React applications including dashboards and real-time applications"
+        },
+        { 
+          name: "Next.js", 
+          icon: <SiNextdotjs className="text-black dark:text-white" />, 
+          level: 82,
+          description: "Server-side rendering, static site generation, API routes, and full-stack React framework",
+          projects: "Built 4 production applications with SEO optimization and better performance"
         },
         { 
           name: "Tailwind CSS", 
           icon: <SiTailwindcss className="text-cyan-400" />, 
           level: 85,
-          description: "Utility-first CSS framework, responsive design, and customization",
-          projects: "Used in 3 projects including this portfolio for rapid UI development"
-        },
-        { 
-          name: "GSAP", 
-          icon: <SiGreensock className="text-green-500" />, 
-          level: 75,
-          description: "High-performance animations, timelines, and scroll-based animations",
-          projects: "Implemented smooth animations in 2 client projects"
-        },
-        { 
-          name: "Bootstrap", 
-          icon: <SiBootstrap className="text-purple-500" />, 
-          level: 80,
-          description: "Responsive grid system, components, and theming",
-          projects: "Built 3 projects using Bootstrap for rapid prototyping"
+          description: "Utility-first CSS framework, responsive design, customization, and component-based styling",
+          projects: "Primary CSS framework for 8+ projects including this portfolio"
         }
       ]
     },
     {
-      title: "Languages",
-      icon: <FaLaptopCode className="text-blue-500" />,
+      title: "Backend",
+      icon: <FaServer className="text-green-500" />,
       skills: [
         { 
-          name: "C++", 
-          icon: <SiCplusplus className="text-blue-600" />, 
-          level: 60,
-          description: "Object-oriented programming, data structures, and algorithms",
-          projects: "Academic projects and algorithm implementations"
+          name: "Node.js", 
+          icon: <SiNodedotjs className="text-green-600" />, 
+          level: 87,
+          description: "Runtime environment, event-driven architecture, non-blocking I/O, and backend API development",
+          projects: "Built RESTful APIs and microservices for 5+ production applications"
         },
         { 
-          name: "Java", 
-          icon: <DiJava className="text-red-500" size={24} />, 
-          level: 70,
-          description: "OOP concepts, exception handling, and collections framework",
-          projects: "Built console applications and university projects"
-        },
-        { 
-          name: "JavaScript", 
-          icon: <FaJs className="text-yellow-400" />, 
+          name: "Express.js", 
+          icon: <SiExpress className="text-gray-600 dark:text-gray-300" />, 
           level: 85,
-          description: "Full-stack JavaScript development, both frontend and backend",
-          projects: "Used in all web development projects"
-        }
-      ]
-    },
-    {
-      title: "Tools",
-      icon: <FaRocket className="text-blue-500" />,
-      skills: [
+          description: "Web application framework, middleware, routing, and API development best practices",
+          projects: "Created backend servers for multiple full-stack applications"
+        },
+   
         { 
-          name: "Git", 
-          icon: <FaGitAlt className="text-orange-600" />, 
-          level: 85,
-          description: "Version control, branching strategies, and collaboration workflows",
-          projects: "Used in all projects for version control and team collaboration"
+          name: "GraphQL", 
+          icon: <SiGraphql className="text-pink-600" />, 
+          level: 78,
+          description: "Query language, schema design, resolvers, and Apollo Client/Server implementation",
+          projects: "Implemented GraphQL APIs for 2 projects with real-time subscriptions"
         },
         { 
-          name: "GitHub", 
-          icon: <FaGithub className="text-gray-800 dark:text-gray-200" />, 
+          name: "RESTful APIs", 
+          icon: <FaCloud className="text-purple-500" />, 
           level: 90,
-          description: "Code hosting, pull requests, issues, and project management",
-          projects: "All projects are hosted on GitHub for version control"
+          description: "API design, documentation, authentication, versioning, and best practices",
+          projects: "Designed and implemented 10+ REST APIs for various applications"
+        }
+      ]
+    },
+    {
+      title: "Database & Cloud",
+      icon: <FaDatabase className="text-blue-500" />,
+      skills: [
+        { 
+          name: "MongoDB", 
+          icon: <SiMongodb className="text-green-500" />, 
+          level: 85,
+          description: "NoSQL database, aggregation pipelines, indexing, and Mongoose ODM",
+          projects: "Primary database for 4 full-stack applications with complex data relationships"
+        },
+   
+        { 
+          name: "MySQL", 
+          icon: <SiMysql className="text-blue-500" />, 
+          level: 78,
+          description: "SQL queries, database design, normalization, and stored procedures",
+          projects: "Legacy system migrations and relational data management"
         },
         { 
-          name: "Vercel", 
-          icon: <SiVercel className="text-black dark:text-white" />, 
+          name: "Firebase", 
+          icon: <SiFirebase className="text-yellow-500" />, 
           level: 80,
-          description: "Frontend deployment platform with CI/CD and preview deployments",
-          projects: "Deployed 3 React applications including this portfolio"
+          description: "Authentication, Firestore, Cloud Functions, and real-time database",
+          projects: "Built 3 real-time applications with Firebase backend"
+        }
+      ]
+    },
+    {
+      title: "Tools & Technologies",
+      icon: <FaRocket className="text-purple-500" />,
+      skills: [
+        { 
+          name: "Git & GitHub", 
+          icon: <FaGithub className="text-gray-800 dark:text-gray-200" />, 
+          level: 92,
+          description: "Version control, CI/CD, branching strategies, and collaborative development workflows",
+          projects: "Managed codebases for 15+ projects with team collaboration"
         },
         { 
-          name: "Netlify", 
-          icon: <SiNetlify className="text-teal-500" />, 
-          level: 75,
-          description: "Static site hosting with form handling and serverless functions",
-          projects: "Deployed 2 static websites with contact forms"
+          name: "Jest & Testing", 
+          icon: <SiJest className="text-red-500" />, 
+          level: 78,
+          description: "Unit testing, integration testing, test-driven development, and mocking",
+          projects: "Implemented testing suites for 4 React and Node.js applications"
+        },
+        { 
+          name: "Postman", 
+          icon: <SiPostman className="text-orange-500" />, 
+          level: 85,
+          description: "API testing, documentation, automation, and collaboration",
+          projects: "Used for testing and documenting all backend APIs"
+        },
+        { 
+          name: "Agile/Scrum", 
+          icon: <FaLaptopCode className="text-green-500" />, 
+          level: 85,
+          description: "Agile methodologies, sprint planning, user stories, and team collaboration",
+          projects: "Participated in 10+ sprints across different project teams"
         }
       ]
     }
@@ -161,14 +200,14 @@ const SkillsSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-            My <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-500 dark:from-blue-400 dark:to-blue-300">Skills</span>
+            Full Stack <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-500 dark:from-blue-400 dark:to-blue-300">Skills</span>
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Technologies and tools I use to bring ideas to life
+            Technologies and tools I use to build complete web applications from frontend to backend
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-8">
           {skillCategories.map((category, catIndex) => (
             <motion.div
               key={catIndex}

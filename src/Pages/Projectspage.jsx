@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { FaTimes, FaExternalLinkAlt, FaGithub, FaCode, FaLaptop, FaFilter, FaStar, FaMobile, FaDesktop, FaDatabase } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -102,6 +102,15 @@ const ProjectsPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [filter, setFilter] = useState('all');
   const [sortBy, setSortBy] = useState('featured');
+
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth' // Smooth scrolling animation
+    });
+  }, []); // Empty dependency array means this runs once when component mounts
 
   // Filter options
   const filters = [

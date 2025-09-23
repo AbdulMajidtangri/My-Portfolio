@@ -16,7 +16,7 @@ const Footer = () => {
             className="space-y-4"
           >
             <h3 className="text-2xl font-bold">
-              <span className="text-blue-400">Abdul</span> Majid
+              <span className="text-blue-400">Abdul Majid</span> 
             </h3>
             <p className="text-gray-400">
               Frontend Developer specializing in creating beautiful, functional web experiences with React.js.
@@ -50,21 +50,31 @@ const Footer = () => {
                   <span className="w-2 h-2 bg-blue-400 rounded-full mr-2"></span>
                   Home
                 </a>
+
               </li>
+             
+                    <li>
+                <a href="#about" className="flex items-center text-gray-400 hover:text-white transition-colors">
+                  <span className="w-2 h-2 bg-blue-400 rounded-full mr-2"></span>
+                  About
+                </a>
+              </li>
+                <li>
+                <a href="#projects" className="flex items-center text-gray-400 hover:text-white transition-colors">
+                  <span className="w-2 h-2 bg-blue-400 rounded-full mr-2"></span>
+                  Projects
+                </a>
+              </li>
+        
               <li>
                 <a href="#skills" className="flex items-center text-gray-400 hover:text-white transition-colors">
                   <span className="w-2 h-2 bg-blue-400 rounded-full mr-2"></span>
                   Skills
                 </a>
               </li>
+        
               <li>
-                <a href="#projects" className="flex items-center text-gray-400 hover:text-white transition-colors">
-                  <span className="w-2 h-2 bg-blue-400 rounded-full mr-2"></span>
-                  Projects
-                </a>
-              </li>
-              <li>
-                <a href="#education-contact" className="flex items-center text-gray-400 hover:text-white transition-colors">
+                <a href="#education" className="flex items-center text-gray-400 hover:text-white transition-colors">
                   <span className="w-2 h-2 bg-blue-400 rounded-full mr-2"></span>
                   Contact
                 </a>
@@ -135,7 +145,7 @@ const Footer = () => {
               <div className="flex items-center">
                 <FaEnvelope className="mr-2 text-blue-400" />
                 <a href="mailto:majidalitangri@gmail.com" className="hover:text-white transition-colors">
-                  majidalitangri@gmail.com
+                  majidalitangri7@gmail.com
                 </a>
               </div>
               <div className="flex items-center">
