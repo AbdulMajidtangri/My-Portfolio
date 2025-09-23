@@ -58,10 +58,7 @@ const PersonalInfo = () => (
       <div className="mr-3 text-blue-600 dark:text-blue-400">
         <FaHeart />
       </div>
-      <div>
-        <span className="font-medium text-gray-800 dark:text-white">Interests:</span>
-        <p className="text-gray-600 dark:text-gray-300">Coding, Web Development, Music, Learning</p>
-      </div>
+    
     </div>
   </div>
 );
