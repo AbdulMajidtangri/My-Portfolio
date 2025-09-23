@@ -56,7 +56,6 @@ const PersonalInfo = () => (
     </div>
     <div className="flex items-center">
       <div className="mr-3 text-blue-600 dark:text-blue-400">
-        <FaHeart />
       </div>
     
     </div>
