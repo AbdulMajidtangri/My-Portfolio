@@ -139,11 +139,12 @@ const ExperienceTab = () => (
   >
     <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-4">Work Experience</h3>
     <div className="space-y-6">
+      {/* First Experience */}
       <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-blue-100 dark:border-gray-700">
         <div className="flex justify-between items-start mb-2">
           <h4 className="text-lg font-semibold text-gray-800 dark:text-white">Frontend Developer Intern</h4>
           <span className="px-3 py-1 bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300 text-sm font-medium rounded-full">
-            Present
+            Jan 2025 – Jun 2025
           </span>
         </div>
         <p className="text-blue-600 dark:text-blue-400 mb-2">Husbar · Remote</p>
@@ -161,30 +162,35 @@ const ExperienceTab = () => (
         </div>
       </div>
 
+      {/* Second Experience - Updated to Softotic Internship */}
       <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-blue-100 dark:border-gray-700">
         <div className="flex justify-between items-start mb-2">
-          <h4 className="text-lg font-semibold text-gray-800 dark:text-white">Freelance Web Developer</h4>
+          <h4 className="text-lg font-semibold text-gray-800 dark:text-white">Full Stack Developer Intern</h4>
           <span className="px-3 py-1 bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300 text-sm font-medium rounded-full">
-            2023 - Present
+            Aug 2025 – Present
           </span>
         </div>
-        <p className="text-blue-600 dark:text-blue-400 mb-2">Self-Employed · Remote</p>
+        <p className="text-blue-600 dark:text-blue-400 mb-2">Softotic · Remote</p>
         <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">
-          Built websites and web applications for various clients using modern technologies. 
-          Managed projects from conception to deployment, ensuring client satisfaction and 
-          delivering high-quality, responsive solutions.
+          Building and maintaining full stack web applications with React.js, Node.js, Express.js, and MongoDB. 
+          Designed and implemented RESTful APIs for seamless client-server communication. 
+          Deployed applications on cloud platforms such as Vercel and Heroku, ensuring scalability and reliability. 
+          Worked on real-life projects, handling end-to-end development from frontend to backend.
         </p>
         <div className="flex flex-wrap gap-2">
-          <span className="px-2 py-1 bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300 rounded text-xs">HTML/CSS</span>
-          <span className="px-2 py-1 bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300 rounded text-xs">JavaScript</span>
           <span className="px-2 py-1 bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300 rounded text-xs">React</span>
           <span className="px-2 py-1 bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300 rounded text-xs">Node.js</span>
+          <span className="px-2 py-1 bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300 rounded text-xs">Express.js</span>
           <span className="px-2 py-1 bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300 rounded text-xs">MongoDB</span>
+          <span className="px-2 py-1 bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300 rounded text-xs">REST API</span>
+          <span className="px-2 py-1 bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300 rounded text-xs">Vercel</span>
+          <span className="px-2 py-1 bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300 rounded text-xs">Heroku</span>
         </div>
       </div>
     </div>
   </motion.div>
 );
+
 
 // Education Tab Component
 const EducationTab = () => {
