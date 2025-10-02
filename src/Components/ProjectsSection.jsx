@@ -9,7 +9,7 @@ import wadejoThumb from '../assets/Wajedo oo.png';
 import ecommerceThumb from '../assets/E-Commerce.png';
 import marsevThumb from '../assets/image.png';
 import hubar from '../assets/husbar1.png';
-
+import softotic from '../assets/softotic.png'
 const ProjectsSection = () => {
   const projects = [
     {
@@ -21,6 +21,7 @@ const ProjectsSection = () => {
       thumbnail: wajedoThumb,
       featured: true
     },
+
     {
       title: "Husbar",
       description: "A professional business website tailored for branding and service presentation, built with a clean interface and responsive design.",
@@ -38,6 +39,15 @@ const ProjectsSection = () => {
       codeUrl: "https://github.com/raza-abbas-23sw/MarsevTech",
       thumbnail: marsevThumb,
       featured: true
+    },
+       {
+      title: "Softotic",
+      description: "Softotic is a sleek, animated portfolio platform crafted with modern design principles to deliver a fluid, engaging user experience.",
+      tags: ["JavaScript", "React.js", "Tailwind CSS"],
+      liveUrl: "https://softotic.com/",
+      codeUrl: "https://github.com/Softotic/softotic_website",
+      thumbnail: softotic,
+      featured: false
     },
     {
       title: "Wadejo Site",
