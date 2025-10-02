@@ -48,24 +48,6 @@ const ProjectsSection = () => {
       thumbnail: wadejoThumb,
       featured: false
     },
-    {
-      title: "E-Commerce Platform",
-      description: "A fully functional e-commerce website with product listings, cart functionality, and payment integration.",
-      tags: ["React", "Node.js", "MongoDB", "Stripe"],
-      liveUrl: "#",
-      codeUrl: "#",
-      thumbnail: ecommerceThumb,
-      featured: false
-    },
-    {
-      title: "Hackathon Project",
-      description: "A competition project built under time constraints showcasing problem-solving and rapid development skills.",
-      tags: ["React", "Firebase", "Material UI"],
-      liveUrl: "#",
-      codeUrl: "#",
-      thumbnail: hackathonThumb,
-      featured: false
-    }
   ];
 
   const [selectedProject, setSelectedProject] = useState(null);
