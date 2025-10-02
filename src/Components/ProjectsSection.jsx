@@ -47,7 +47,7 @@ const ProjectsSection = () => {
       liveUrl: "https://softotic.com/",
       codeUrl: "https://github.com/Softotic/softotic_website",
       thumbnail: softotic,
-      featured: false
+      featured: true
     },
     {
       title: "Wadejo Site",
