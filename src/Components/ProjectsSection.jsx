@@ -10,6 +10,7 @@ import ecommerceThumb from '../assets/E-Commerce.png';
 import marsevThumb from '../assets/image.png';
 import hubar from '../assets/husbar1.png';
 import softotic from '../assets/softotic.png'
+import lifeinsurance from '../assets/lifeinsurnace.png'
 const ProjectsSection = () => {
   const projects = [
     {
@@ -49,6 +50,16 @@ const ProjectsSection = () => {
       thumbnail: softotic,
       featured: true
     },
+      {
+      title: "State Life Insurance",
+
+      description: " This fully developed website is built for a life insurance company, offering complete navigation, service listings, and customer engagement features.",
+      tags: ["React", "Node.js", "MongoDB", "Express.js"],
+      liveUrl: "https://statelifeinsurance-demo.netlify.app/",
+      codeUrl: "https://github.com/raza-abbas-23sw/Life-Insurance-Management-System",
+      thumbnail: lifeinsurance,
+      featured: false
+    },
     {
       title: "Wadejo Site",
       description: "Portfolio website with smooth animations and modern design principles for optimal user experience.",
@@ -58,8 +69,8 @@ const ProjectsSection = () => {
       thumbnail: wadejoThumb,
       featured: false
     },
-  ];
 
+  ];
   const [selectedProject, setSelectedProject] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [filter, setFilter] = useState('all');
