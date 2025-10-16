@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 // Import project images
 import wajedoThumb from '../assets/wajedo internationa.png';
+import purepickthumbnail from '../assets/mpurepick.png'
 import hackathonThumb from '../assets/hackathon.png';
 import wadejoThumb from '../assets/Wajedo oo.png';
 import ecommerceThumb from '../assets/E-Commerce.png';
@@ -13,15 +14,15 @@ import softotic from '../assets/softotic.png'
 import lifeinsurance from '../assets/lifeinsurnace.png'
 const ProjectsSection = () => {
   const projects = [
-    {
-      title: "Wajedo International",
-      description: "A corporate website with modern design and responsive layout built for international business representation.",
-      tags: ["JavaScript", "React.js", "Tailwind CSS"],
-      liveUrl: "https://wajedo-international-corporation.vercel.app/",
-      codeUrl: "https://github.com/AbdulMajidtangri/Wajedo_international_Corporation",
-      thumbnail: wajedoThumb,
-      featured: true
-    },
+{
+  title: "PurePick",
+  description: "A full-stack e-commerce website built with Next.js, offering seamless product browsing, authentication, and dynamic data management with a clean, responsive interface.",
+  tags: ["Next.js", "React.js", "Tailwind CSS", "Full Stack", "MongoDB"],
+  liveUrl: "https://mpurepick.vercel.app/",
+  codeUrl: "https://github.com/AbdulMajidtangri/Full-Stack-E-Commerce-Store.git",
+  thumbnail: purepickthumbnail,
+  featured: true
+},
 
     {
       title: "Husbar",
@@ -31,8 +32,15 @@ const ProjectsSection = () => {
       codeUrl: "https://github.com/AbdulMajidtangri/Husbar",
       thumbnail: hubar,
       featured: true
-    },
-    {
+    },{
+      title: "Wajedo International",
+      description: "A corporate website with modern design and responsive layout built for international business representation.",
+      tags: ["JavaScript", "React.js", "Tailwind CSS"],
+      liveUrl: "https://wajedo-international-corporation.vercel.app/",
+      codeUrl: "https://github.com/AbdulMajidtangri/Wajedo_international_Corporation",
+      thumbnail: wajedoThumb,
+      featured: true
+    },{
       title: "MarsevTech",
       description: "A platform showcasing innovative tech solutions with modern UI/UX and seamless functionality.",
       tags: ["React", "Node.js", "MongoDB", "Express.js"],
@@ -52,7 +60,6 @@ const ProjectsSection = () => {
     },
       {
       title: "State Life Insurance",
-
       description: " This fully developed website is built for a life insurance company, offering complete navigation, service listings, and customer engagement features.",
       tags: ["React", "Node.js", "MongoDB", "Express.js"],
       liveUrl: "https://statelifeinsurance-demo.netlify.app/",
