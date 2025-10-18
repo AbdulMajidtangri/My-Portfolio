@@ -144,7 +144,6 @@ const Navbar = () => {
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [isOpen]);
-
   // Scroll to section after navigation to home page with hash
   useEffect(() => {
     if (location.pathname === '/' && location.hash) {
@@ -209,14 +208,19 @@ const Navbar = () => {
 
           {/* Dark mode and mobile menu button */}
           <div className="flex items-center space-x-2 md:space-x-4">
-            <button
-              id="dark-mode-button"
-              onClick={toggleDarkMode}
-              className="p-2 rounded-full text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
-              aria-label="Toggle dark mode"
-            >
-              {darkMode ? <FaSun size={18} /> : <FaMoon size={18} />}
-            </button>
+          <button
+  id="dark-mode-button"
+  onClick={toggleDarkMode}
+  className="p-2 rounded-full text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+  aria-label="Toggle dark mode"
+>
+  {darkMode ? (
+    <FaSun size={18} className="text-yellow-400" /> // Bright yellow sun
+  ) : (
+    <FaMoon size={18} className="text-blue-400" /> // Soft blue moon
+  )}
+</button>
+
 
             <button
               id="menu-button"
