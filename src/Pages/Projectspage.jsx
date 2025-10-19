@@ -2,100 +2,103 @@ import { useState, useEffect } from 'react';
 import { FaTimes, FaExternalLinkAlt, FaGithub, FaCode, FaLaptop, FaFilter, FaStar, FaMobile, FaDesktop, FaDatabase } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 
-// Import project images (make sure these paths are correct)
+// Import project images
 import wajedoThumb from '../assets/wajedo internationa.png';
+import purepickthumbnail from '../assets/mpurepick.png'
 import hackathonThumb from '../assets/hackathon.png';
 import wadejoThumb from '../assets/Wajedo oo.png';
 import ecommerceThumb from '../assets/E-Commerce.png';
 import marsevThumb from '../assets/image.png';
 import hubar from '../assets/husbar1.png';
+import softotic from '../assets/softotic.png'
+import lifeinsurance from '../assets/lifeinsurnace.png'
 
 const ProjectsPage = () => {
   const projects = [
     {
-      id: 1,
-      title: "Wajedo International",
-      description: "A comprehensive corporate website built for Wajedo International Corporation featuring modern design, responsive layout, and seamless user experience. The site showcases company services, portfolio, and contact information with optimized performance.",
-      detailedDescription: "This project involved creating a professional corporate website that effectively represents Wajedo International's global business operations. The site features a modern, clean design with smooth animations and responsive layout that works perfectly across all devices. Key features include service showcases, project portfolio, team information, and integrated contact forms.",
-      tags: ["JavaScript", "React.js", "Tailwind CSS", "Framer Motion", "Responsive Design"],
-      liveUrl: "https://wajedo-international-corporation.vercel.app/",
-      codeUrl: "https://github.com/AbdulMajidtangri/Wajedo_international_Corporation",
-      thumbnail: wajedoThumb,
+      title: "PurePick",
+      description: "A full-stack e-commerce website built with Next.js, offering seamless product browsing, authentication, and dynamic data management with a clean, responsive interface.",
+      tags: ["Next.js", "React.js", "Tailwind CSS", "Full Stack", "MongoDB"],
+      liveUrl: "https://mpurepick.vercel.app/",
+      codeUrl: "https://github.com/AbdulMajidtangri/Full-Stack-E-Commerce-Store.git",
+      thumbnail: purepickthumbnail,
+      status: 'completed',
       featured: true,
-      category: "corporate",
-      status: "completed",
-      year: 2024
+      year: '2025',
+      category: 'fullstack'
     },
     {
-      id: 2,
       title: "Husbar",
-      description: "A professional business website for Husbar company, featuring modern UI/UX design, responsive layout, and optimized performance for better user engagement.",
-      detailedDescription: "Husbar website was developed with a focus on clean design and user experience. The project involved creating multiple pages including homepage, services, about, and contact sections. Implemented smooth animations and optimized loading times for better SEO performance.",
-      tags: ["JavaScript", "React.js", "Tailwind CSS", "CSS3", "Git"],
+      description: "A professional business website tailored for branding and service presentation, built with a clean interface and responsive design.",
+      tags: ["JavaScript", "React.js", "Tailwind CSS"],
       liveUrl: "https://www.husbar.com/",
       codeUrl: "https://github.com/AbdulMajidtangri/Husbar",
       thumbnail: hubar,
+      status: 'completed',
       featured: true,
-      category: "business",
-      status: "completed",
-      year: 2024
+      year: '2025',
+      category: 'business'
     },
     {
-      id: 3,
+      title: "Wajedo International",
+      description: "A corporate website with modern design and responsive layout built for international business representation.",
+      tags: ["JavaScript", "React.js", "Tailwind CSS"],
+      liveUrl: "https://wajedo-international-corporation.vercel.app/",
+      codeUrl: "https://github.com/AbdulMajidtangri/Wajedo_international_Corporation",
+      thumbnail: wajedoThumb,
+      status: 'completed',
+      featured: true,
+      year: '2025',
+      category: 'corporate'
+    },
+    {
       title: "MarsevTech",
-      description: "A technology solutions platform showcasing innovative services with modern design principles and seamless functionality.",
-      detailedDescription: "MarsevTech is a comprehensive platform built with the MERN stack, featuring user authentication, service listings, and interactive components. The project demonstrates full-stack development capabilities with focus on scalability and maintainability.",
-      tags: ["React", "Node.js", "MongoDB", "Express.js", "MERN Stack", "JWT"],
+      description: "A platform showcasing innovative tech solutions with modern UI/UX and seamless functionality.",
+      tags: ["React", "Node.js", "MongoDB", "Express.js"],
       liveUrl: "https://www.marsevtech.com/",
       codeUrl: "https://github.com/raza-abbas-23sw/MarsevTech",
       thumbnail: marsevThumb,
+      status: 'completed',
       featured: true,
-      category: "fullstack",
-      status: "completed",
-      year: 2024
+      year: '2025',
+      category: 'corporate'
     },
     {
-      id: 4,
+      title: "Softotic",
+      description: "Softotic is a sleek, animated portfolio platform crafted with modern design principles to deliver a fluid, engaging user experience.",
+      tags: ["JavaScript", "React.js", "Tailwind CSS"],
+      liveUrl: "https://softotic.com/",
+      codeUrl: "https://github.com/Softotic/softotic_website",
+      thumbnail: softotic,
+      status: 'completed',
+      featured: true,
+      year: '2025',
+      category: 'portfolio'
+    },
+    {
+      title: "State Life Insurance",
+      description: "This fully developed website is built for a life insurance company, offering complete navigation, service listings, and customer engagement features.",
+      tags: ["React", "Node.js", "MongoDB", "Express.js"],
+      liveUrl: "https://statelifeinsurance-demo.netlify.app/",
+      codeUrl: "https://github.com/raza-abbas-23sw/Life-Insurance-Management-System",
+      thumbnail: lifeinsurance,
+      status: 'completed',
+      featured: false,
+      year: '2025',
+      category: 'corporate'
+    },
+    {
       title: "Wadejo Site",
-      description: "Personal portfolio website with modern animations, responsive design, and optimized performance for showcasing creative work.",
-      detailedDescription: "A visually appealing portfolio website built with vanilla JavaScript and modern CSS techniques. Features smooth scroll animations, interactive elements, and mobile-first responsive design.",
-      tags: ["HTML5", "CSS3", "JavaScript", "Responsive Design", "Animation"],
+      description: "Portfolio website with smooth animations and modern design principles for optimal user experience.",
+      tags: ["HTML", "CSS", "JavaScript"],
       liveUrl: "https://wadejosite.vercel.app/",
       codeUrl: "https://github.com/AbdulMajidtangri/Wadejosite",
       thumbnail: wadejoThumb,
+      status: 'completed',
       featured: false,
-      category: "portfolio",
-      status: "completed",
-      year: 2023
+      year: '2025',
+      category: 'portfolio'
     },
-    {
-      id: 5,
-      title: "E-Commerce Platform",
-      description: "A fully functional e-commerce website with product management, shopping cart, user authentication, and payment integration.",
-      detailedDescription: "Complete e-commerce solution featuring product catalog, user authentication, shopping cart functionality, order management, and integrated payment processing. Built with modern development practices and security considerations.",
-      tags: ["React", "Node.js", "MongoDB", "Stripe", "JWT", "Redux"],
-      liveUrl: "#",
-      codeUrl: "#",
-      thumbnail: ecommerceThumb,
-      featured: false,
-      category: "ecommerce",
-      status: "in-progress",
-      year: 2024
-    },
-    {
-      id: 6,
-      title: "Hackathon Project",
-      description: "Competition project built under time constraints showcasing problem-solving skills and rapid development capabilities.",
-      detailedDescription: "A hackathon project developed within 48 hours, focusing on solving real-world problems through technology. Demonstrates ability to work under pressure and deliver functional solutions quickly.",
-      tags: ["React", "Firebase", "Material UI", "API Integration", "Rapid Development"],
-      liveUrl: "#",
-      codeUrl: "#",
-      thumbnail: hackathonThumb,
-      featured: false,
-      category: "hackathon",
-      status: "completed",
-      year: 2023
-    }
   ];
 
   const [selectedProject, setSelectedProject] = useState(null);
@@ -108,9 +111,9 @@ const ProjectsPage = () => {
     window.scrollTo({
       top: 0,
       left: 0,
-      behavior: 'smooth' // Smooth scrolling animation
+      behavior: 'smooth'
     });
-  }, []); // Empty dependency array means this runs once when component mounts
+  }, []);
 
   // Filter options
   const filters = [
@@ -320,7 +323,7 @@ const ProjectsPage = () => {
         >
           {filteredAndSortedProjects.map((project, index) => (
             <motion.div
-              key={project.id}
+              key={project.title}
               variants={cardVariants}
               whileHover="hover"
               className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700 flex flex-col group relative"
@@ -468,12 +471,12 @@ const ProjectsPage = () => {
                 transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                 className="relative bg-white dark:bg-gray-800 rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden flex flex-col shadow-2xl"
               >
-                {/* Modal Header */}
-                <div className="flex justify-between items-center p-6 border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800">
-                  <div className="flex items-center gap-4">
-                    <div className="w-3 h-12 bg-gradient-to-b from-blue-600 to-blue-400 rounded-full" />
-                    <div>
-                      <h3 className="text-2xl font-bold text-gray-800 dark:text-white">
+                {/* Modal Header - FIXED LAYOUT */}
+                <div className="flex justify-between items-start p-6 border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800">
+                  <div className="flex items-start gap-4 flex-1">
+                    <div className="w-3 h-12 bg-gradient-to-b from-blue-600 to-blue-400 rounded-full mt-1" />
+                    <div className="flex-1">
+                      <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">
                         {selectedProject.title}
                       </h3>
                       <div className="flex items-center gap-3 text-sm text-gray-500 dark:text-gray-400">
@@ -494,7 +497,7 @@ const ProjectsPage = () => {
                   
                   <motion.button 
                     onClick={closeModal}
-                    className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200"
+                    className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200 ml-4"
                     aria-label="Close modal"
                     whileHover={{ rotate: 90 }}
                     whileTap={{ scale: 0.9 }}
@@ -519,7 +522,7 @@ const ProjectsPage = () => {
                         <FaCode className="text-blue-600 dark:text-blue-400" /> Project Overview
                       </h4>
                       <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                        {selectedProject.detailedDescription}
+                        {selectedProject.description}
                       </p>
                     </div>
                     
