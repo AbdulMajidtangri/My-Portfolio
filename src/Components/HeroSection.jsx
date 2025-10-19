@@ -349,7 +349,6 @@ const HeroSection = () => {
                 { name: 'Frontend', icon: <FaCode className="mr-2" />, modal: 'frontend', color: 'from-blue-500 to-blue-600' },
                 { name: 'Backend', icon: <FaServer className="mr-2" />, modal: 'backend', color: 'from-blue-600 to-blue-700' },
                 { name: 'Database', icon: <FaDatabase className="mr-2" />, modal: 'database', color: 'from-blue-700 to-blue-800' },
-                { name: 'DevOps', icon: <FaCloud className="mr-2" />, modal: 'devops', color: 'from-blue-800 to-blue-900' }
               ].map((tech) => (
                 <motion.button
                   key={tech.name}

@@ -403,6 +403,49 @@ const About = () => {
     });
   }, []); // Empty dependency array means this runs once when component mounts
 
+  const handleDownloadCV = () => {
+    try {
+      console.log('CV file path:', cv);
+      
+      // Method 1: Direct download
+      const link = document.createElement('a');
+      link.href = cv;
+      link.download = 'majidcv (2).pdf';
+      link.target = '_blank';
+      link.style.display = 'none';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      console.log('Download initiated successfully');
+      
+      // Method 2: Fallback - fetch and download
+      setTimeout(() => {
+        fetch(cv)
+          .then(response => response.blob())
+          .then(blob => {
+            const url = window.URL.createObjectURL(blob);
+            const link2 = document.createElement('a');
+            link2.href = url;
+            link2.download = 'Majid_FullStack_Developer_CV.pdf';
+            document.body.appendChild(link2);
+            link2.click();
+            document.body.removeChild(link2);
+            window.URL.revokeObjectURL(url);
+          })
+          .catch(error => {
+            console.error('Fetch method failed:', error);
+            // Method 3: Final fallback - open in new tab
+            window.open(cv, '_blank');
+          });
+      }, 100);
+      
+    } catch (error) {
+      console.error('Error downloading CV:', error);
+      // Final fallback: try opening in new tab
+      window.open(cv, '_blank');
+    }
+  };
+
   return (
     <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900 transition-colors duration-500 relative overflow-hidden">
       <div className="max-w-6xl mx-auto relative z-10">
@@ -472,18 +515,22 @@ const About = () => {
               className="flex flex-wrap gap-4"
             >
               <a
-                href="#contact"
+                href="/"
                 className="px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white font-medium rounded-lg transition-all duration-300"
               >
                 Contact Me
               </a>
-              <a
-                href={cv}
-                download
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  console.log('Download CV button clicked');
+                  handleDownloadCV();
+                }}
                 className="px-6 py-3 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 font-medium rounded-lg transition-all duration-300 flex items-center gap-2"
               >
                 <FaDownload size={14} /> Download CV
-              </a>
+              </button>
             </motion.div>
           </motion.div>
         </div>
