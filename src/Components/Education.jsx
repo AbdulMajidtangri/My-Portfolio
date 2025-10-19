@@ -46,12 +46,12 @@ const Education = () => {
     {
       id: 1,
       institution: "Mehran University of Engineering and Technology",
-      degree: "Bachelor's in Computer Science",
+      degree: "Bachelor's in Software Engineering",
       period: "2023-2027",
       status: "Completed 2nd Year",
       icon: <FaUniversity className="text-xl" />,
       details: "Currently pursuing my degree in Computer Science with a focus on software engineering and web development.",
-      achievements: ["Maintained 3.8 GPA", "Active in coding competitions", "Member of Computer Society"]
+      achievements: [ "Active in coding competitions"]
     },
     {
       id: 2,

@@ -80,7 +80,7 @@ const SkillsTab = () => (
         </div>
         <h4 className="text-lg font-semibold text-gray-800 dark:text-white mb-2">Frontend Development</h4>
         <p className="text-gray-600 dark:text-gray-300 text-sm">
-          HTML5, CSS3, JavaScript, React.js, Tailwind CSS, Bootstrap, Framer Motion
+          HTML5, CSS3, JavaScript, React.js, Tailwind CSS, Bootstrap
         </p>
       </motion.div>
 
@@ -119,7 +119,7 @@ const SkillsTab = () => (
         </div>
         <h4 className="text-lg font-semibold text-gray-800 dark:text-white mb-2">Tools & Technologies</h4>
         <p className="text-gray-600 dark:text-gray-300 text-sm">
-          Git, GitHub, VS Code, Postman, npm, Webpack, Vercel, Netlify
+          Git, GitHub, VS Code, Postman, npm,  Vercel
         </p>
       </motion.div>
     </div>
@@ -146,7 +146,7 @@ const ExperienceTab = () => (
         <p className="text-blue-600 dark:text-blue-400 mb-2">Husbar · Remote</p>
         <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">
           Developed responsive web applications using React and Tailwind CSS. Collaborated with team members 
-          using Git and Agile methodologies. Built multiple projects through team collaboration and consistently 
+          using Git. Built multiple projects through team collaboration and consistently 
           satisfied clients with high-quality work.
         </p>
         <div className="flex flex-wrap gap-2">
@@ -154,7 +154,6 @@ const ExperienceTab = () => (
           <span className="px-2 py-1 bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300 rounded text-xs">JavaScript</span>
           <span className="px-2 py-1 bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300 rounded text-xs">Tailwind CSS</span>
           <span className="px-2 py-1 bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300 rounded text-xs">Git</span>
-          <span className="px-2 py-1 bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300 rounded text-xs">Agile</span>
         </div>
       </div>
 
@@ -180,7 +179,6 @@ const ExperienceTab = () => (
           <span className="px-2 py-1 bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300 rounded text-xs">MongoDB</span>
           <span className="px-2 py-1 bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300 rounded text-xs">REST API</span>
           <span className="px-2 py-1 bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300 rounded text-xs">Vercel</span>
-          <span className="px-2 py-1 bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300 rounded text-xs">Heroku</span>
         </div>
       </div>
     </div>
@@ -194,12 +192,12 @@ const EducationTab = () => {
     {
       id: 1,
       institution: "Mehran University of Engineering and Technology",
-      degree: "Bachelor's in Computer Science",
+      degree: "Bachelor's in Software Engineering",
       period: "2023-2027",
       status: "Completed 2nd Year",
       icon: <FaUniversity className="text-xl" />,
       details: "Currently pursuing my degree in Computer Science with a focus on software engineering and web development.",
-      achievements: ["Maintained 3.8 GPA", "Active in coding competitions", "Member of Computer Society"]
+      achievements: [ "Active in coding competitions"]
     },
     {
       id: 2,
@@ -300,7 +298,6 @@ const TechStack = () => (
         { name: 'HTML5', color: 'bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300' },
         { name: 'CSS3', color: 'bg-indigo-100 text-indigo-800 dark:bg-indigo-900/30 dark:text-indigo-300' },
         { name: 'Git', color: 'bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-300' },
-        { name: 'Framer Motion', color: 'bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300' },
         { name: 'REST APIs', color: 'bg-teal-100 text-teal-800 dark:bg-teal-900/30 dark:text-teal-300' },
         { name: 'Mongoose', color: 'bg-rose-100 text-rose-800 dark:bg-rose-900/30 dark:text-rose-300' },
       ].map((tech, index) => (
