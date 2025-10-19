@@ -43,13 +43,6 @@ const SkillsSection = () => {
           projects: "Core language used in all full-stack projects and interactive web applications"
         },
         { 
-          name: "TypeScript", 
-          icon: <SiTypescript className="text-blue-600" />, 
-          level: 85,
-          description: "Static typing, interfaces, generics, and TypeScript configuration for large-scale applications",
-          projects: "Implemented in 3 enterprise-level React and Node.js projects"
-        },
-        { 
           name: "React.js", 
           icon: <FaReact className="text-blue-400" />, 
           level: 88,
@@ -89,14 +82,6 @@ const SkillsSection = () => {
           level: 85,
           description: "Web application framework, middleware, routing, and API development best practices",
           projects: "Created backend servers for multiple full-stack applications"
-        },
-   
-        { 
-          name: "GraphQL", 
-          icon: <SiGraphql className="text-pink-600" />, 
-          level: 78,
-          description: "Query language, schema design, resolvers, and Apollo Client/Server implementation",
-          projects: "Implemented GraphQL APIs for 2 projects with real-time subscriptions"
         },
         { 
           name: "RESTful APIs", 
@@ -146,13 +131,7 @@ const SkillsSection = () => {
           description: "Version control, CI/CD, branching strategies, and collaborative development workflows",
           projects: "Managed codebases for 15+ projects with team collaboration"
         },
-        { 
-          name: "Jest & Testing", 
-          icon: <SiJest className="text-red-500" />, 
-          level: 78,
-          description: "Unit testing, integration testing, test-driven development, and mocking",
-          projects: "Implemented testing suites for 4 React and Node.js applications"
-        },
+      
         { 
           name: "Postman", 
           icon: <SiPostman className="text-orange-500" />, 
@@ -160,13 +139,7 @@ const SkillsSection = () => {
           description: "API testing, documentation, automation, and collaboration",
           projects: "Used for testing and documenting all backend APIs"
         },
-        { 
-          name: "Agile/Scrum", 
-          icon: <FaLaptopCode className="text-green-500" />, 
-          level: 85,
-          description: "Agile methodologies, sprint planning, user stories, and team collaboration",
-          projects: "Participated in 10+ sprints across different project teams"
-        }
+     
       ]
     }
   ];
